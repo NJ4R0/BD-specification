@@ -108,14 +108,14 @@ techniczną
     \section{Projekt bazy danych (diagram UML)}
     
     \begin{center}
-    \includegraphics[width=18cm]{Project.png} 
+    \includegraphics[width=18cm]{Project.png}
     \end{center}
     
     \section{Legenda do diagramu UML}
     PK - Primary Key - Klucz główny
     \\FK - Foreign Key - Klucz obcy
     \\CK - Composite Key - Klucz łączony
-    \\U - Unique - Wartość unikalna
+    \\UK - Unique Key - Klucz unikalny
     \\Users - Przechowuje dane użytkowników
     \begin{itemize}
     \item EMail - adres e-mail
@@ -133,7 +133,7 @@ techniczną
     \item NickName - nazwa użytkownika
     \item BudgetPerMonth - dostępny miesięczny budżet
     \item MonthStart - dzień miesiąca, rozpoczynający okres rozliczeniowy
-    \item SavedMoney(Premium) - Oszczędności, usługa dostępna przy koncie Premium
+    \item PremiumSavedMoney - Oszczędności, usługa dostępna przy koncie Premium
     \end{itemize}
     Transactions - Przechowuje rekordy transakcji użytkowników
     \begin{itemize}
@@ -141,11 +141,11 @@ techniczną
     \item NickName - nazwa użytkownika
     \item SaleName - nazwa produktu, usługi
     \item MoneySpent - koszt kupna produktu, usługi
-    \item Currency - waluta
+    \item Currency - 3 znakowy kod waluty
     \item Date - data transakcji
     \item ShopID - numer identyfikacyjny sklepu
     \end{itemize}
-    Routines (Premium) - Przechowuje dane o płatnościach stałych użytkowników Premium
+    Routines - Przechowuje dane o płatnościach stałych użytkowników Premium
     \begin{itemize}
     \item RoutineName - nazwa płatności stałej
     \item NickName - nazwa użytkownika
@@ -153,20 +153,29 @@ techniczną
     \item LastDate - data zakończenia płatności stałej
     \item Day - dzień miesiąca wykonania płatności stałej
     \item Cost - koszt płatności
-    \item Currency - waluta
+    \item Currency - 3 znakowy kod waluty
     \end{itemize}
-    Favourites (Premium) - Przechowuje dane o ulubionych płatnościach użytkowników Premium
+    Favourites - Przechowuje dane o ulubionych płatnościach użytkowników Premium
     \begin{itemize}
     \item NickName - nazwa użytkownika
     \item FavouriteName - nazwa płatności
     \item ShopID - numer identyfikacyjny sklepu
     \item Cost - koszt płatności
-    \item Currency - waluta
+    \item Currency - 3 znakowy kod waluty
+    \end{itemize}
+    Currencies - Przechowuje dane o walutach
+    \begin{itemize}
+    \item Currency - 3 znakowy kod waluty
+    \item ToPLN - przelicznik waluty na PLN
     \end{itemize}
     Categories - Przechowuje dane o kategoriach produktów, usług podanych w transakcjach
     \begin{itemize}
     \item SaleName - nazwa płatności
     \item Category - nazwa kategorii
+    \end{itemize}
+    CategoryTags - Przechowuje tagi dla tabeli kategorii
+    \begin{itemize}
+    \item CategoryName - nazwa kategorii
     \end{itemize}
     Shops - Przechowuje podstawowe dane o sklepach i miejscach świadczenia usług
     \begin{itemize}
@@ -175,7 +184,7 @@ techniczną
     \end{itemize}
     ShopDetails - Przechowuje szczegółowe dane o sklepach i miejscach świadczenia usług
     \begin{itemize}
-    \item ShopID - numer identyfikacyjny sklepu
+    \item ShopName - nazwa identyfikująca sklep
     \item Country - adres sklepu; kraj
     \item City - adres sklepu; miasto
     \item Address - adres sklepu; ulica i numer
